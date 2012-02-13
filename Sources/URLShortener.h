@@ -32,7 +32,8 @@
   @private
 	id<URLShortenerDelegate> _delegate;
 	URLShortenerCredentials* _credentials;
-	NSURL* _url;
+	NSString* _url;
+    NSInteger _tag;
   @private
 	NSURLConnection* _connection;
 	NSInteger _statusCode;
@@ -41,7 +42,8 @@
 
 @property (nonatomic,retain) id<URLShortenerDelegate> delegate;
 @property (nonatomic,retain) URLShortenerCredentials* credentials;
-@property (nonatomic,retain) NSURL* url;
+@property (nonatomic,retain) NSString* url;
+@property (nonatomic, assign) NSInteger tag;
 
 - (void) execute;
 

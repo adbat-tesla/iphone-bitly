@@ -24,7 +24,8 @@
 @synthesize
 	delegate = _delegate,
 	credentials = _credentials,
-	url = _url;
+	url = _url,
+    tag = _tag;
 
 - (NSString*) _formEncodeString: (NSString*) string
 {
@@ -44,7 +45,7 @@
 		NSString* urlString = [NSString stringWithFormat: @"http://api.bit.ly/v3/shorten?login=%@&apiKey=%@&uri=%@&format=txt",
 			[self _formEncodeString: _credentials.login],
 			[self _formEncodeString: _credentials.key],
-			[self _formEncodeString: [_url absoluteString]]];
+			[self _formEncodeString: _url]];
 			
 		NSURLRequest* request = [NSURLRequest requestWithURL: [NSURL URLWithString: urlString]
 			cachePolicy: NSURLRequestReloadIgnoringLocalCacheData timeoutInterval: 30.0];
